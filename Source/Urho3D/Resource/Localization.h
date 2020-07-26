@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2008-2019 the Urho3D project.
+// Copyright (c) 2008-2020 the Urho3D project.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -60,7 +60,7 @@ public:
     /// Clear all loaded strings.
     void Reset();
     /// Load strings from JSONFile. The file should be UTF8 without BOM.
-    void LoadJSONFile(const String& name, const String language = String::EMPTY);
+    void LoadJSONFile(const String& name, const String& language = String::EMPTY);
     /// Load strings from JSONValue.
     void LoadMultipleLanguageJSON(const JSONValue& source);
     /// Load strings from JSONValue for specific language.

@@ -1,5 +1,5 @@
 //
-// Copyright (c) 2008-2019 the Urho3D project.
+// Copyright (c) 2008-2020 the Urho3D project.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -134,8 +134,8 @@ static void RegisterLocalization(asIScriptEngine* engine)
     engine->RegisterObjectMethod("Localization", "String Get(const String&in)", asMETHOD(Localization, Get), asCALL_THISCALL);
     engine->RegisterObjectMethod("Localization", "void Reset()", asMETHOD(Localization, Reset), asCALL_THISCALL);
     engine->RegisterObjectMethod("Localization", "void LoadMultipleLanguageJSON(const JSONValue&in)", asMETHOD(Localization, LoadMultipleLanguageJSON), asCALL_THISCALL);
-    engine->RegisterObjectMethod("Localization", "void LoadSingleLanguageJSON(const JSONValue&in, const String&language = String(\"\") const)", asMETHOD(Localization, LoadSingleLanguageJSON), asCALL_THISCALL);
-    engine->RegisterObjectMethod("Localization", "void LoadJSONFile(const String&in, const String language = String(\"\") const)", asMETHOD(Localization, LoadJSONFile), asCALL_THISCALL);
+    engine->RegisterObjectMethod("Localization", "void LoadSingleLanguageJSON(const JSONValue&in, const String&in language = String(\"\") const)", asMETHOD(Localization, LoadSingleLanguageJSON), asCALL_THISCALL);
+    engine->RegisterObjectMethod("Localization", "void LoadJSONFile(const String&in, const String&in language = String(\"\") const)", asMETHOD(Localization, LoadJSONFile), asCALL_THISCALL);
     engine->RegisterGlobalFunction("Localization@+ get_localization()", asFUNCTION(GetLocalization), asCALL_CDECL);
 }
 

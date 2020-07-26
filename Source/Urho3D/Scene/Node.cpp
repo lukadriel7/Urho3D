@@ -1,5 +1,5 @@
-﻿//
-// Copyright (c) 2008-2019 the Urho3D project.
+//
+// Copyright (c) 2008-2020 the Urho3D project.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -359,16 +359,18 @@ void Node::AddTag(const String& tag)
     impl_->tags_.Push(tag);
 
     // Cache
-    scene_->NodeTagAdded(this, tag);
-
-    // Send event
-    using namespace NodeTagAdded;
-    VariantMap& eventData = GetEventDataMap();
-    eventData[P_SCENE] = scene_;
-    eventData[P_NODE] = this;
-    eventData[P_TAG] = tag;
-    scene_->SendEvent(E_NODETAGADDED, eventData);
-
+    if (scene_)
+    {
+        scene_->NodeTagAdded(this, tag);
+    
+        // Send event
+        using namespace NodeTagAdded;
+        VariantMap& eventData = GetEventDataMap();
+        eventData[P_SCENE] = scene_;
+        eventData[P_NODE] = this;
+        eventData[P_TAG] = tag;
+        scene_->SendEvent(E_NODETAGADDED, eventData);
+    }
     // Sync
     MarkNetworkUpdate();
 }
